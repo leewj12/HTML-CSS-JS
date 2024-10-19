@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Arial';
+            text-align: center;
+            background-color: #ffffffd1;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        let answer = 53;
+        let count = 0;
+
+        function guess() {
+            let result = "";
+            let number = parseInt(document.getElementById("user").value);
+            count++;
+
+            if (number = answer)result
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <p>이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 100 사이에 있습니다.</p>;
+    <img src="updown.jpg" width="400" height="150">
+    <form>
+        숫자:
+        <input type="text" id="user" size="5">
+        <input type="button" value="확인" onclick="guess();"><br>
+        추측횟수:
+        <input type="text" id="guess"><br>
+        힌트:
+        <input type="text" id="result">
+    </form>
+</body>
+</html>

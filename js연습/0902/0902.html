@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>프로그래밍 설문지</h1>
+    <form method="post">
+        이름 <input type="text" name="name"><br>
+        Email <input type="email" name="email"><br>
+        나이 <input type="number" min="0" max="130" step="1" name="age"><br>
+        직업
+        <select name="job">
+            <option value="student" selected>학생</option><br>
+            <option value="jobless">무직</option><br>
+            <option value="worker">직장인</option><br>
+            <option value="etc">기타</option><br>
+        </select><br>
+        이 사이트를 친구에게 추천하겠습니까?<br>
+        <input type="radio" name="rec" value="yes">네<br>
+        <input type="radio" name="rec" value="no">아니오<br>
+        <input type="radio" name="rec" value="?">?<br>
+        사용가능한 언어를 모두 체크하시오.<br>
+        <input type="checkbox" name="lan" value="c">C<br>
+        <input type="checkbox" name="lan" value="java">JAVA<br>
+        <input type="checkbox" name="lan" value="c#">C#<br>
+        <input type="checkbox" name="lan" value="python">Python<br>
+        하고 싶은 제안을 적어주세요.<br>
+        <textarea cols="50" rows="5"></textarea><br>
+        <input type="submit" value="제출">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>
