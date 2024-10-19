@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>1부터 100 사이의 정수를 입력하시오</p><br>
+        <input id="inp" type="text" value="">
+        <button type="button" onclick="a()">제출</button><br><br>
+        <p id="res"></p>
+    </form>
+    <script>
+        function a(){
+            if (document.getElementById('inp').value <= 100 && document.getElementById('inp').value >= 1){
+                document.getElementById('res').innerHTML = '올바른 입력값입니다';
+            }
+            else{
+                document.getElementById('res').style.color = 'red'
+                document.getElementById('res').innerHTML = '한글을 읽지 못하십니까?';
+            }
+        }
+    </script>
+</body>
+</html>

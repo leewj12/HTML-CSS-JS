@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 10px;
+        }
+        div{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>회원가입</h1>
+        아이디 <input type="text" id="id">
+        <button type="button" onclick="cid();">중복확인</button><br>
+        <div id="dv1"></div><br>
+        비밀번호 <input type="password" id="pwd" onchange="cpwd();"><br>
+        비밀번호 확인 <input type="password" id="pwd2" onchange="cpwd2();"><br>
+        <div id="dv2"></div><br>
+        이름 <input type="text" id="name" onchange="cname();"><br>
+        <div id="dv3"></div><br>
+        생년월일 <input type="number" id="year" onchange="cbirth();">년 
+        <select id="month" onchange="cbirth();">
+            <option value="0">선택</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>월 
+        <input type="number" id="date" min="1" max="31" onchange="cbirth();">일 <br>
+        <div id="dv4"></div><br>
+        성별 <input type="radio" name="gender" value="male" id="male" onchange="cgender();">남
+        <input type="radio" name="gender" value="female" id="female" onchange="cgender();">여 <br>
+        <div id="dv5"></div><br>
+        전화번호 <input type="number" id="pnum" onchange="cpnum();"> (-) 없이 숫자만 입력<br>
+        <div id="dv6"></div><br>
+        약관동의 <input type="checkbox" id="agr" onchange="cagr();">약관에 동의합니다. <br>
+        <div id="dv7"></div><br>
+        <button type="reset" onclick="rs()">초기화</button>
+        <button type="button" onclick="chk();">가입</button>
+    </form>
+    <script>
+        function cid(){
+            let id = document.getElementById('id').value;
+            if(id == ''){
+                document.getElementById('dv1').innerHTML = '아이디를 입력해주세요';
+                document.getElementById('dv1').style.color = 'red';
+                document.getElementById('id').focus();
+                return false;
+            } 
+            else if(id == 'aaaaa'){
+                document.getElementById('dv1').innerHTML = '이미 사용중인 아이디입니다';
+                document.getElementById('dv1').style.color = 'red';
+                document.getElementById('id').focus();
+                return false;
+            } 
+            else {
+                document.getElementById('dv1').innerHTML = '사용 가능한 아이디입니다.';
+                document.getElementById('dv1').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cpwd(){
+            let pwdchk = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+            let pwd = document.getElementById('pwd').value;
+            if(!pwdchk.test(pwd)){
+                document.getElementById('dv2').innerHTML = '비밀번호는 8-25자 사이의 영문, 숫자, 특수문자를 포함한 형태로 작성해주세요';
+                document.getElementById('dv2').style.color ='red';
+                document.getElementById('pwd').focus();
+                return false;
+            }
+            else {
+                document.getElementById('dv2').innerHTML = '사용 가능한 비밀번호 입니다';
+                document.getElementById('dv2').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cpwd2(){
+            if(document.getElementById('pwd').value != document.getElementById('pwd2').value){
+                document.getElementById('dv2').innerHTML = '비밀번호가 일치하지 않습니다';
+                document.getElementById('dv2').style.color ='red';
+                document.getElementById('pwd2').focus();
+                return false;
+            }
+            else if(!cpwd()){
+                return false;
+            }
+            else {
+                document.getElementById('dv2').innerHTML = '비밀번호가 확인되었습니다';
+                document.getElementById('dv2').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cname(){
+            let name = document.getElementById('name').value;
+            if (!/^[a-zA-Z가-힣]+$/.test(name)) {
+                document.getElementById('dv3').innerHTML = '이름을 영문또는 한글로 입력해주세요';
+                document.getElementById('dv3').style.color = 'red';
+                document.getElementById('name').focus();
+                return false;
+            }
+            else {
+                document.getElementById('dv3').innerHTML = '사용 가능한 이름입니다';
+                document.getElementById('dv3').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cbirth(){
+            let year = document.getElementById('year').value;
+            let month = document.getElementById('month').value;
+            let date = document.getElementById('date').value;
+
+            if(year.length !== 4){
+                document.getElementById('dv4').innerHTML = '년도는 4자리 정수로 입력 ex)0459';
+                document.getElementById('dv4').style.color ='red';
+                document.getElementById('year').focus();
+                return false;
+            }
+
+            if(month == "0"){
+                document.getElementById('dv4').innerHTML = '월을 선택해주세요';
+                document.getElementById('dv4').style.color = 'red';
+                document.getElementById('month').focus();
+                return false;
+            }
+            
+            if(date < 1 || date > 31){
+                document.getElementById('dv4').innerHTML = '일은 1, 31 사이의 정수로 입력하세요';
+                document.getElementById('dv4').style.color = 'red';
+                document.getElementById('date').focus();
+                return false;
+            }
+            else {
+                document.getElementById('dv4').innerHTML = '생년월일이 올바르게 입력되었습니다';
+                document.getElementById('dv4').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cgender(){
+            if (!document.getElementById('male').checked && !document.getElementById('female').checked) {
+                document.getElementById('dv5').innerHTML = '성별을 선택해주세요';
+                document.getElementById('dv5').style.color = 'red';
+                document.getElementById('male').focus();
+                return false;
+            }
+            else{
+                document.getElementById('dv5').innerHTML = '성별이 선택되었습니다';
+                document.getElementById('dv5').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cpnum(){
+            let pnum = document.getElementById('pnum').value;
+            if(pnum.length < 10 || pnum.length > 11){
+                document.getElementById('dv6').innerHTML = '전화번호를 - 없이 정수만 입력해주세요.';
+                document.getElementById('dv6').style.color = 'red';
+                document.getElementById('pnum').focus();
+                return false;
+            }
+            else {
+                document.getElementById('dv6').innerHTML = '사용 가능한 전화번호입니다';
+                document.getElementById('dv6').style.color = 'green';
+                return true;
+            }
+        }
+
+        function cagr(){
+            if (!document.getElementById('agr').checked){
+                document.getElementById('dv7').innerHTML = '약관에 동의해주세요.';
+                document.getElementById('dv7').style.color ='red';
+                document.getElementById('agr').focus();
+                return false;
+            }
+            else{
+                document.getElementById('dv7').innerHTML = '약관에 동의하셨습니다.';
+                document.getElementById('dv7').style.color = 'green';
+                return true;
+            }
+        }
+
+        function rs(){
+            document.getElementById('dv1').innerHTML = '';
+            document.getElementById('dv2').innerHTML = '';
+            document.getElementById('dv3').innerHTML = '';
+            document.getElementById('dv4').innerHTML = '';
+            document.getElementById('dv5').innerHTML = '';
+            document.getElementById('dv6').innerHTML = '';
+            document.getElementById('dv7').innerHTML = '';
+        }
+
+        function chk(){
+            if (cid() && cpwd() && cpwd2() && cname() && cbirth() && cgender() && cpnum() && cagr()) {
+                alert('가입이 완료되었습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

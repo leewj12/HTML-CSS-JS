@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="input">입력한 문자열을 출력해보세요</h3><br>
+    <form>
+        이름:<input type="text" id="name"><br><br>
+        주소:<input type="text" id="addr"><br><br>
+        <button type="button" onclick="res();">출력</button>
+        <button type="reset" onclick="rst();">초기화</button><br><br>
+        <p id="result">결과는 여기에 표시</p>
+    </form>
+    <script>
+        function res(){
+            document.getElementById('result').innerHTML = 
+            document.getElementById('name').value + '<br>' + document.getElementById('addr').value
+        }
+        function rst(){
+            document.getElementById('result').innerHTML = '결과는 여기에 표시'
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 굴림, sans-serif;
+            text-align: center;
+            font-size: 20px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        function gf(){
+            let x = document.getElementById('form1');
+            let s = '' ;
+                for (let i = 0 ; i < x.length ; i++){
+                    s += x.elements[i].value + '<br>'
+                }
+            document.getElementById('demo').innerHTML = s;
+        }
+    </script>
+</head>
+<body>
+    <p>입력한 문자열 출력</p>
+    <form id="form1">
+        이름: <input type="text" name="fn"><br>
+        번호: <input type="text" name="ln">
+    </form>
+    <button onclick="gf();">출력</button>
+    <p id="demo">결과 표시</p>
+</body>
+</html>

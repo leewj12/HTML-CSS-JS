@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sub(){
+            let x = document.getElementById('name');
+            x.value = x.value.toLowerCase();
+
+        }
+    </script>
+</head>
+<body>
+    영어단어: <input type="text" onblur="sub()" id="name">
+    <p>입력 필드를 벗어나면 소문자로 변경됨</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cl(elem, min, max){
+            let s = elem.value;
+            if(s.length >= min && s.length < max){
+                return true;
+            }
+            else if (s.length == 0){
+                alert('이름은 필수 입력이며 ' + min + '문자와 ' + max + '문자 사이로 입력해주세요');
+                elem.focus();
+            }
+            else{
+                alert(min + '문자와 ' + max + '문자 사이로 입력해주세요');
+                elem.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        이름(6-8 문자): <input type="text" id="name">
+        <input type="button" onclick="cl(document.getElementById('name'),6,8)" value="확인">
+    </form>
+</body>
+</html>

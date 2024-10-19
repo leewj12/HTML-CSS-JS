@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Math Quiz</h1><br>
+    <form>
+        <input type="text" id="input" >원하는 식 =을 빼고 입력
+        <br>
+        <input type="text" id="result"><br>
+        <button type="button" onclick="mth();">정답 알아보기</button>
+        <button type="reset">초기화</button>
+    </form>
+    <script>
+        function mth(){
+            let a = eval(document.getElementById('input').value);
+            let b = document.getElementById('result').value;
+            if(a == b){
+                alert('정답! ' +  b);
+            }
+            else{
+                alert('오답! 정답은 ' + a);
+            }
+        }
+    </script>
+</body>
+</html>

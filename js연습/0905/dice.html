@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #dice{
+            width: 200px;
+            height: 200px;
+            font-size: 1000%;
+            text-align: center;
+            background-color: #ffa300;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>주사위 굴리기 게임입니다.</h1><br>
+    <input id="dice"><br>
+    <button onclick="d();">주사위 굴리기</button>
+    <script>
+        function d() {
+            document.getElementById('dice').value = Math.floor(Math.random()*6)+1;
+        }
+    </script>
+</body>
+</html>

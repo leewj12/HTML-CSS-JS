@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오 주소 API 연동</title>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function searchAddress() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+
+                    document.getElementById('postcode').value = data.zonecode;
+                    document.getElementById('address').value = data.address;   
+                    document.getElementById('address_detail').focus();        
+                }
+            }).open();
+        }
+    </script>
+</head>
+<body>
+    <button id="address-search-btn" onclick="searchAddress()">주소 검색</button>
+    <br><br>
+    <input type="text" id="postcode" placeholder="우편번호" readonly><br>
+    <input type="text" id="address" placeholder="주소" readonly><br>
+    <input type="text" id="address_detail" placeholder="상세 주소">
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오 주소 API 연동</title>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function searchAddress(event) {
+            event.preventDefault(); // 기본 동작을 막기 위한 코드
+
+            // 카카오 주소 API를 이용하여 주소 검색
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    console.log(data); // 데이터를 콘솔에 출력하여 값 확인
+
+                    // 우편번호 및 주소 값 설정
+                    document.getElementById('postcode').value = data.zonecode;
+                    document.getElementById('address').value = data.address;
+                    
+                    // 상세 주소 입력 필드로 포커스 이동
+                    document.getElementById('address_detail').focus();
+                }
+            }).open();
+        }
+    </script>
+</head> 
+<body>
+    <!-- form 태그 제거 및 버튼 type 명시 -->
+    <button type="button" id="address-search-btn" onclick="searchAddress(event)">주소 검색</button>
+    <br><br>
+    <!-- readonly 속성 임시 제거 -->
+    <input type="text" id="postcode" placeholder="우편번호"><br>
+    <input type="text" id="address" placeholder="주소"><br>
+    <input type="text" id="address_detail" placeholder="상세 주소">
+</body>
+</html>

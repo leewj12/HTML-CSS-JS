@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            let result;
+            let radius = document.getElementById('radius').value;
+            let list = document.getElementsByName('cal');
+            if (list[0].checked)
+                result = Math.PI * Math.pow(radius,2);
+            else
+                result = (4.0/3.0) * Math.PI * Math.pow(radius,3);
+            document.getElementById('result').value = result;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        반지름<input type="text" id="radius">
+        <input type="radio" value="AREA" name="cal" checked>AREA
+        <input type="radio" value="VOLUME" name="cal">VOLUME<br>
+        연산결과<input type="text" id="result">
+        <button type="button" onclick="calc();">계산</button>
+    </form>
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            let r = document.getElementById('r').value;
+            if (document.getElementsByName('cal')[0].checked) {
+                // 면적 계산
+                document.getElementById('result').value = Math.PI * r ** 2;
+            } else {
+                // 부피 계산
+                document.getElementById('result').value = (4 / 3) * Math.PI * r ** 3;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        반지름<input type="text" id="r">
+        <input type="radio" value="AREA" name="cal" checked>AREA
+        <input type="radio" value="VOLUME" name="cal">VOLUME<br>
+        연산결과<input type="text" id="result">
+        <button type="button" onclick="calc()">계산</button>
+    </form>
+</body>
+</html> -->

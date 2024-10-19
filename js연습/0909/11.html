@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h1>회원가입</h1>
+
+        아이디<input type="text" name="id" id="id">
+        <button type="button" onclick="cid();">중복확인</button><br>
+        <p id="pid"></p><br>
+
+        비밀번호<input type="password" name="pw" id="pw" onchange="cpw();"><br>
+        비밀번호 확인<input type="password" name="pw2" id="pw2" onchange="cpw2()"><br>
+        <p id="ppw"></p><br>
+
+        이름<input type="text" name="name" id="name" onchange="cname();"><br>
+        <p id="pname"></p><br>
+
+        생년월일<input type="text" name="year" id="year" onchange="cyear();">년
+        <select name="month" id="month" >
+
+        
+        </select>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onmouseover="mov(this)" onmouseout="mou(this)" style="background-color: #faea11; width:200px; height: 50px;">
+        마우스 올려
+    </div>
+    <script>
+        function mov(obj){
+            obj.innerHTML = '감사'
+        }
+        function mou(obj){
+            obj.innerHTML = '올려'
+        }
+    </script>
+</body>
+</html>
